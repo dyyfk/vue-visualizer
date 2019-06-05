@@ -1,8 +1,6 @@
 <template>
   <v-container>
     <v-form ref="form" lazy-validation>
-      <v-checkbox v-model="checkbox" label="Only show the difference" @change="diffOnly"></v-checkbox>
-
       <!-- <v-btn :disabled="!valid" color="success" @click="submit">Search</v-btn> -->
     </v-form>
   </v-container>
@@ -18,9 +16,9 @@ export default {
   }),
 
   methods: {
-    diffOnly(e) {
-      this.$emit("show-diff", e);
-    }
+    // diffOnly(e) {
+    //   this.$emit("show-diff", e);
+    // }
   }
 };
 </script>
