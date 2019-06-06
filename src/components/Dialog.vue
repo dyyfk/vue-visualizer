@@ -8,6 +8,9 @@
         <v-card>
           <v-card-title class="headline">{{row.movie_title}}</v-card-title>
           <v-card-text>{{row.director_name}}</v-card-text>
+          <v-card-actions>
+            <v-btn flat color="orange" v-on:click="addRow">Add</v-btn>
+          </v-card-actions>
         </v-card>
       </v-dialog>
     </v-layout>
@@ -22,11 +25,16 @@ export default {
       dialog: false
     };
   },
-  methods: {},
-  watch: {
-    row: function() {
-      this.dialog = true;
+  methods: {
+    addRow() {
+      this.$emit("add-row", this.row);
     }
+  },
+  watch: {
+    row() {
+      this.dialog = true;
+    },
+
   }
 };
 </script>

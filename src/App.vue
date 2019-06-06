@@ -2,8 +2,16 @@
   <v-app>
     <v-content>
       <Table v-bind:movies="movies" v-on:preview-row="previewRow"/>
-      <Card/>
-      <Dialog v-bind:row="row"/>
+      <v-layout row wrap>
+        <v-flex grow pa-1>
+          <Card v-bind:itemsToCompare="itemsToCompare[0]"/>
+        </v-flex>
+        <v-flex grow pa-1>
+          <Card v-bind:itemsToCompare="itemsToCompare[1]"/>
+        </v-flex>
+      </v-layout>
+
+      <Dialog v-bind:row="row" v-on:add-row="addRow"/>
     </v-content>
   </v-app>
 </template>
@@ -23,11 +31,15 @@ export default {
   methods: {
     previewRow(row) {
       this.row = row;
+    },
+    addRow(row) {
+      this.itemsToCompare[0] = row;
     }
   },
   data() {
     return {
       row: {},
+      itemsToCompare: [{}, {}],
       movies: [
         {
           color: "Color",

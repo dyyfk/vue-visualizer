@@ -2,12 +2,6 @@
   <div>
     <v-checkbox v-model="checkbox" label="Only show the difference"></v-checkbox>
     <v-data-table :headers="headers" :items="movies" class="elevation-1">
-      <!-- <template slot="headers" slot-scope="props">
-      <tr v-bind:key="props.index">
-        <th v-for="header in props.headers">{{header.text}}</th>
-      </tr>
-      </template>-->
-
       <template slot="items" slot-scope="props">
         <tr @click="select(props.item)">
           <td>{{ props.item.movie_title }}</td>
