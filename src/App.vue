@@ -3,12 +3,12 @@
     <v-content>
       <Table v-bind:movies="movies" v-on:preview-row="previewRow"/>
       <v-layout row wrap>
-        <v-flex grow pa-1>
+        <!-- <v-flex grow pa-1>
           <Card v-bind:itemsToCompare="itemsToCompare[0]"/>
         </v-flex>
         <v-flex grow pa-1>
           <Card v-bind:itemsToCompare="itemsToCompare[1]"/>
-        </v-flex>
+        </v-flex>-->
       </v-layout>
 
       <Dialog v-bind:row="row" v-on:add-row="addRow"/>
@@ -17,16 +17,16 @@
 </template>
 
 <script>
-import Table from "./components/Table";
 import Card from "./components/Card";
 import Dialog from "./components/Dialog.vue";
+import Table from "./components/Table";
 
 export default {
   name: "App",
   components: {
-    Table,
     Card,
-    Dialog
+    Dialog,
+    Table
   },
   methods: {
     previewRow(row) {
@@ -265,3 +265,26 @@ export default {
   }
 };
 </script>
+
+<style>
+#app {
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  /* margin-top: 60px; */
+}
+h1,
+h2 {
+  font-weight: normal;
+}
+a {
+  color: #42b983;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+</style>
+
