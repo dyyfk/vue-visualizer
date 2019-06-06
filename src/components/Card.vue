@@ -6,7 +6,7 @@
       </v-card-title>
       <v-card-text id="card-contents">
           <ul>
-            <li v-for="(value, key) in movie">{{ key }} : {{ value }}</li>
+            <li v-for="(value, index) in movie" :key="`value-${index}`">{{ index }} : {{ value }}</li>
             <li><a v-bind:href="movie.movie_imdb_link">Sample link</a></li>
           </ul>
       </v-card-text>

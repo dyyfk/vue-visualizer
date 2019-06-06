@@ -6,7 +6,7 @@
         <v-img src="https://cdn.vuetifyjs.com/images/cards/desert.jpg" aspect-ratio="2.75"></v-img>
         <v-card id="card">
           <v-card-title class="headline">{{ row.movie_title }}</v-card-title>
-          <v-card-text v-for="(value, key) in row">{{ key }} : {{ value }}</v-card-text>
+          <v-card-text v-for="(value, index) in row" :key="`value-${index}`">{{ index }} : {{ value }}</v-card-text>
         </v-card>
       </v-dialog>
     </v-layout>
