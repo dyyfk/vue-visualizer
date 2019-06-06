@@ -1,4 +1,4 @@
-# vuetify
+# JSON Viewer
 
 ## Project setup
 ```
