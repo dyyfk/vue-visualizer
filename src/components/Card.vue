@@ -19,6 +19,7 @@
 
 <script>
 export default {
+  name: "ItemToCompare",
   props: ["itemsToCompare"]
 };
 </script>
