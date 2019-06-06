@@ -3,12 +3,12 @@
     <v-content>
       <Table v-bind:movies="movies" v-on:preview-row="previewRow"/>
       <v-layout row wrap>
-        <!-- <v-flex grow pa-1>
+        <v-flex grow pa-1>
           <Card v-bind:itemsToCompare="itemsToCompare[0]"/>
         </v-flex>
         <v-flex grow pa-1>
           <Card v-bind:itemsToCompare="itemsToCompare[1]"/>
-        </v-flex>-->
+        </v-flex>
       </v-layout>
 
       <Dialog v-bind:row="row" v-on:add-row="addRow"/>
