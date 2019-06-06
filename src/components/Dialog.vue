@@ -14,9 +14,14 @@
           </v-card-title>
 
           <v-card-text
-            v-for="(value, index) in row"
+            v-for="(value, index) in row" 
             :key="`value-${index}`"
-          >{{ index }} : {{ value }}</v-card-text>
+          >
+          <span id="index">{{ index }}</span> : <span id="value">{{ value }}</span>
+          </v-card-text>
+          <v-card-actions>
+            <v-btn round color="primary" dark>Add</v-btn>
+          </v-card-actions>
         </v-card>
       </v-dialog>
     </v-layout>
@@ -47,5 +52,9 @@ export default {
 <style scoped>
 #card {
   text-align: left;
+}
+#index {
+  color: #42b983;
+  font-weight: bold;
 }
 </style>
