@@ -9,21 +9,21 @@
       </template>-->
 
       <template slot="items" slot-scope="props">
-        <tr>
-          <!-- <div v-for="movie in movies"> -->
+        <tr @click="select(props.item)">
           <td>{{ props.item.movie_title }}</td>
           <td class="text-xs-left">{{ props.item.color }}</td>
           <td class="text-xs-left">{{ props.item.director_name }}</td>
           <td class="text-xs-left">{{ props.item.num_critic_for_reviews }}</td>
           <td class="text-xs-left">{{ props.item.duration }}</td>
           <td class="text-xs-left">{{ props.item.director_facebook_likes }}</td>
-          <!-- </div> -->
         </tr>
       </template>
     </v-data-table>
+    <Dialog/>
   </div>
 </template>
 <script>
+
 export default {
   name: "Table",
   props: ["movies"],
@@ -46,10 +46,12 @@ export default {
     };
   },
 
-  methods: {},
-  created() {
-    console.log(this.movies);
-  }
+  methods: {
+    select(row) {
+      this.$emit("preview-row", row);
+    }
+  },
+  created() {}
 };
 </script>
 

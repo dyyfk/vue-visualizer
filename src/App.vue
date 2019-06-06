@@ -1,8 +1,9 @@
 <template>
   <v-app>
     <v-content>
-      <Table v-bind:movies="movies"/>
-      <card/>
+      <Table v-bind:movies="movies" v-on:preview-row="previewRow"/>
+      <Card/>
+      <Dialog v-bind:row="row"/>
     </v-content>
   </v-app>
 </template>
@@ -10,16 +11,23 @@
 <script>
 import Table from "./components/Table";
 import Card from "./components/Card";
+import Dialog from "./components/Dialog.vue";
 
 export default {
   name: "App",
   components: {
     Table,
-    Card
+    Card,
+    Dialog
   },
-  methods: {},
+  methods: {
+    previewRow(row) {
+      this.row = row;
+    }
+  },
   data() {
     return {
+      row: {},
       movies: [
         {
           color: "Color",
