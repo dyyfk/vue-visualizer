@@ -10,9 +10,8 @@
           <Card v-bind:itemsToCompare="itemsToCompare[1]"/>
         </v-flex>
       </v-layout>
-
-      <Dialog v-bind:row="row" v-on:add-row="addRow"/>
     </v-content>
+    <Dialog v-bind:row="row" v-on:add-row="addRow"/>
   </v-app>
 </template>
 
@@ -33,12 +32,19 @@ export default {
       this.row = row;
     },
     addRow(row) {
-      this.itemsToCompare[0] = row;
+      if (!this.leftAdded) {
+        this.itemsToCompare.splice(0, 1, row);
+        this.leftAdded = true;
+      } else {
+        this.itemsToCompare.splice(1, 1, row);
+        this.leftAdded = false;
+      }
     }
   },
   data() {
     return {
       row: {},
+      leftAdded: false,
       itemsToCompare: [{}, {}],
       movies: [
         {
