@@ -1,23 +1,20 @@
 <template>
-  <v-layout>
-    <v-flex xs12 sm6 offset-sm3>
-      <v-card>
-        <v-card-title primary-title>
-          <div>
-            <div>
-              <h3 class="headline mb-0">{{ movie.movie_title }}</h3>
-              <strong>{{movie.director_name}}</strong>
-            </div>
-            <a v-bind:href="movie.movie_imdb_link">link</a>
-          </div>
-        </v-card-title>
-
-        <v-card-actions>
-          <v-btn flat color="orange">Compare</v-btn>\
-        </v-card-actions>
-      </v-card>
-    </v-flex>
-  </v-layout>
+  <v-flex xs12 sm6 offset-sm3 mt-3>
+    <v-card>
+      <v-card-title>
+        <h3 class="headline">{{ movie.movie_title }}</h3>
+      </v-card-title>
+      <v-card-text id="card-contents">
+          <ul>
+            <li v-for="(value, key) in movie">{{ key }} : {{ value }}</li>
+            <li><a v-bind:href="movie.movie_imdb_link">Sample link</a></li>
+          </ul>
+      </v-card-text>
+      <v-card-actions>
+        <v-btn flat color="orange">Compare</v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-flex>
 </template>
 
 <script>
@@ -59,5 +56,14 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+v-card {
+  margin: 10px;
+}
+#card-contents {
+  text-align: left;
+}
+a {
+  color: #42b983;
+}
 </style>
