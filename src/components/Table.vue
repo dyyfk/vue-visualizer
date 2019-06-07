@@ -17,7 +17,7 @@
   </div>
 </template>
 <script>
-import loadedJson from "../assets/test.json"
+import loadedJson from "../assets/test.json";
 
 export default {
   name: "Table",

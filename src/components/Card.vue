@@ -5,10 +5,13 @@
     </v-card-title>
     <v-card-text id="card-contents">
       <ul>
-        <li v-for="(value, index) in movie" :key="`value-${index}`">{{ index }} : {{ value }}</li>
-        <li>
-          <a v-bind:href="movie.movie_imdb_link">Sample link</a>
-        </li>
+        <li
+          v-for="(value, index) in itemsToCompare"
+          :key="`value-${index}`"
+        >{{ index }} : {{ value }}</li>
+        <!-- <li>
+          <a v-bind:href="itemsToCompare.movie_imdb_link">Sample link</a>
+        </li>-->
       </ul>
     </v-card-text>
     <v-card-actions>
@@ -19,8 +22,8 @@
 
 <script>
 export default {
-  name: "ItemToCompare",
-  props: ["itemsToCompare"]
+  props: ["itemsToCompare"],
+  methods: {}
 };
 </script>
 
@@ -30,8 +33,10 @@ v-card {
 }
 #card-contents {
   text-align: left;
+  
 }
 a {
   color: #42b983;
+
 }
 </style>
