@@ -4,10 +4,10 @@
       <Table v-bind:movies="movies" v-on:preview-row="previewRow"/>
       <v-layout row wrap>
         <v-flex grow pa-1>
-          <Card v-bind:itemsToCompare="itemsToCompare[0]"/>
+          <Card v-bind:itemsToCompare="itemsToCompare[0]" class="cards"/>
         </v-flex>
         <v-flex grow pa-1>
-          <Card v-bind:itemsToCompare="itemsToCompare[1]"/>
+          <Card v-bind:itemsToCompare="itemsToCompare[1]" class="cards"/>
         </v-flex>
       </v-layout>
     </v-content>
