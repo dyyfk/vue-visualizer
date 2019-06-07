@@ -9,10 +9,8 @@
           v-for="(value, index) in itemsToCompare"
           :key="`value-${index}`"
         >
-        <!-- <span id="index">{{ index }}:</span>
-        <span id="value"> {{ value }}</span> -->
           <span id="index">{{ index }}</span> :
-          <span id="value" v-if = "!strip(this.value)" >{{ value }}  </span>
+          <span id="value" v-if = "!strip(value)" >{{ value }}  </span>
           <span id="value" v-else  ><a :href="value">  {{ value }} </a> </span>
         </li>
       </ul>
@@ -21,6 +19,7 @@
       <v-btn round color="primary" dark>Compare</v-btn>
     </v-card-actions>
   </v-card>
+  
 </template>
 
 <script>
