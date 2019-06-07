@@ -15,7 +15,7 @@
 
           <v-card-text v-for="(value, index) in row" :key="`value-${index}`">
             <span id="index">{{ index }}</span> :
-            <span id="value" v-if = "index !== 'movie_imdb_link'" >{{ value }}  </span>
+            <span id="value" v-if = "!strip(value)" >{{ value }}  </span>
             <span id="value" v-else  ><a :href="value">  {{ value }} </a> </span>
 
           </v-card-text>
@@ -37,7 +37,18 @@ export default {
   methods: {
     addRow() {
       this.$emit("add-row", this.row);
+    },
+    strip(str) {
+        var pattern = new RegExp('^(http?:\\/\\/)?'+ // protocol
+        '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+        '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+        '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+        '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+        '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+        return !!pattern.test(str);
     }
+
+
   },
   watch: {
     row() {
