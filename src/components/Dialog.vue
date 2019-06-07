@@ -15,7 +15,9 @@
 
           <v-card-text v-for="(value, index) in row" :key="`value-${index}`">
             <span id="index">{{ index }}</span> :
-            <span id="value">{{ value }}</span>
+            <span id="value" v-if = "index !== 'movie_imdb_link'" >{{ value }}  </span>
+            <span id="value" v-else  ><a :href="value">  {{ value }} </a> </span>
+
           </v-card-text>
         </v-card>
       </v-dialog>
@@ -25,6 +27,7 @@
 
 <script>
 export default {
+  
   props: ["row"],
   data() {
     return {

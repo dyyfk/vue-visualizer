@@ -98,7 +98,7 @@ export default {
           plot_keywords:
             "goddess|marriage ceremony|marriage proposal|pirate|singapore",
           movie_imdb_link:
-            "http://www.imdb.com/title/tt0449088/?ref_=fn_tt_tt_1",
+          "http://www.imdb.com/title/tt0449088/?ref_=fn_tt_tt_1",
           num_user_for_reviews: 1238,
           language: "English",
           country: "USA",

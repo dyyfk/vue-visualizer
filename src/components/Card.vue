@@ -31,6 +31,10 @@ export default {
 v-card {
   margin: 10px;
 }
+
+
+
+
 #card-contents {
   text-align: left;
   
