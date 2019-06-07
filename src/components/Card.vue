@@ -8,14 +8,14 @@
         <li
           v-for="(value, index) in itemsToCompare"
           :key="`value-${index}`"
-        >{{ index }} : {{ value }}</li>
-        <!-- <li>
-          <a v-bind:href="itemsToCompare.movie_imdb_link">Sample link</a>
-        </li>-->
+        >
+        <span id="index">{{ index }}:</span>
+        <span id="value"> {{ value }}</span>
+        </li>
       </ul>
     </v-card-text>
     <v-card-actions>
-      <v-btn flat color="orange">Compare</v-btn>
+      <v-btn round color="primary" dark>Compare</v-btn>
     </v-card-actions>
   </v-card>
 </template>
@@ -38,5 +38,12 @@ v-card {
 a {
   color: #42b983;
 
+}
+#index {
+  color: #42b983;
+  font-weight: bold;
+}
+li {
+  padding: 10px;
 }
 </style>
