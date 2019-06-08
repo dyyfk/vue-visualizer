@@ -1,6 +1,5 @@
 <template>
   <div>
-    <v-checkbox v-model="checkbox" label="Only show the difference"></v-checkbox>
     <v-data-table :headers="headers" :items="movies" class="elevation-1">
       <template slot="items" slot-scope="props">
         <tr @click="select(props.item)">
@@ -24,7 +23,6 @@ export default {
   props: ["movies"],
   data() {
     return {
-      checkbox: false,
       headers: [
         {
           text: "movie_title",

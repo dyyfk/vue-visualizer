@@ -1,13 +1,18 @@
 <template>
   <v-app>
     <v-content>
+      <v-layout>
+        <v-btn round color="primary" dark @click="compare">Compare</v-btn>
+        <v-checkbox v-model="checkbox" label="Only show the difference"></v-checkbox>
+      </v-layout>
+
       <Table v-bind:movies="movies" v-on:preview-row="previewRow"/>
       <v-layout row wrap>
         <v-flex grow pa-1>
-          <Card v-bind:itemsToCompare="itemsToCompare[0]" class="cards"/>
+          <Card ref="Card_0" v-bind:itemsToCompare="itemsToCompare[0]" class="cards"/>
         </v-flex>
         <v-flex grow pa-1>
-          <Card v-bind:itemsToCompare="itemsToCompare[1]" class="cards"/>
+          <Card ref="Card_1" v-bind:itemsToCompare="itemsToCompare[1]" class="cards"/>
         </v-flex>
       </v-layout>
     </v-content>
@@ -39,12 +44,25 @@ export default {
         this.itemsToCompare.splice(1, 1, row);
         this.leftAdded = false;
       }
+    },
+    compare() {
+      const values = [];
+      for (let key in this.itemsToCompare[0]) {
+        if (this.itemsToCompare[0][key] !== this.itemsToCompare[1][key]) {
+          values.push({ key: false });
+        } else {
+          values.push({ keu: true });
+        }
+      }
+      this.$refs.Card_0.displayDiff(values);
+      this.$refs.Card_1.displayDiff(values);
     }
   },
   data() {
     return {
       row: {},
       leftAdded: false,
+      checkbox: false,
       itemsToCompare: [{}, {}],
       movies: [
         {
@@ -98,7 +116,7 @@ export default {
           plot_keywords:
             "goddess|marriage ceremony|marriage proposal|pirate|singapore",
           movie_imdb_link:
-          "http://www.imdb.com/title/tt0449088/?ref_=fn_tt_tt_1",
+            "http://www.imdb.com/title/tt0449088/?ref_=fn_tt_tt_1",
           num_user_for_reviews: 1238,
           language: "English",
           country: "USA",
