@@ -10,6 +10,8 @@
   "dependencies": {
     "core-js": "^2.6.5",
     "howler": "^2.1.2",
+    "papaparse": "^5.0.0",
+    "perf_hooks": "0.0.1",
     "vue": "^2.6.10",
     "vuetify": "^1.5.5"
   },

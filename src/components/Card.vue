@@ -58,11 +58,13 @@ v-card {
 }
 a {
   color: #42b983;
+  font-weight: bold;
 
 }
 #index {
   color: #42b983;
   font-weight: bold;
+  font-family:courier;
 }
 li {
   padding: 10px;
