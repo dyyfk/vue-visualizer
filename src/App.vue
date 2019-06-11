@@ -2,7 +2,6 @@
 
   <v-app>
     <v-content>
-      <a :href="item"> </a>
       <Table v-bind:file="file" v-model = "file" v-on:preview-row="previewRow"/>
       <v-layout row wrap> 
         <v-flex grow pa-1>
@@ -22,8 +21,7 @@
 import Card from "./components/Card";
 import Dialog from "./components/Dialog.vue";
 import Table from "./components/Table";
-import Papa from 'papaparse';
-import csvFile from "./assets/data.csv"
+import * as Papa from 'papaparse';
 
 
 //import { watch } from 'fs';
@@ -61,7 +59,7 @@ export default {
           download : true,
           header: true,
           complete: function(results) {
-                console.log("Help I am getting called!", results.data);
+               //console.log("Help I am getting called!", results.data);
                //a = results;
                //this.file = results.data;
                that.file = results.data;
@@ -71,10 +69,6 @@ export default {
       });
    
     }
-  
-
-
-
   },
   data: function() {
    //console.log("ajsdf")
@@ -83,8 +77,7 @@ export default {
       leftAdded:false,
       itemsToCompare:[{},{}],
       file: [ ],
-      fileurl: csvFile
-      //"./data.csv"
+      fileurl: "./data.csv"
     };
   },
   mounted() {
