@@ -4,10 +4,8 @@
     <v-data-table :headers="iheaders" :items="dataarray" class="elevation-1">
       <template slot="items" slot-scope="props">
         <tr @click="select(props.item)"> 
-          
           <!-- <td>{{ props.item.Title }}</td> 
           <td>{{ props.item.Year }}</td>  -->
-         
           <td class="text-xs-left" v-for="(value, index) in iheaders" 
           :key="`value-${index}`" >
             {{props.item[value.value]}} 
