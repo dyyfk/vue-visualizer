@@ -2,7 +2,7 @@
 
   <v-app>
     <v-content>
-      <Table v-bind:file="file" v-model = "file" v-on:preview-row="previewRow"/>
+      <Table v-bind:iheaders="head" :dataarray="file"  v-model="file"  v-on:preview-row="previewRow"/>
       <v-layout row wrap> 
         <v-flex grow pa-1>
           <Card v-bind:itemsToCompare="itemsToCompare[0]" class="cards"/>
@@ -22,6 +22,7 @@ import Card from "./components/Card";
 import Dialog from "./components/Dialog.vue";
 import Table from "./components/Table";
 import * as Papa from 'papaparse';
+
 
 
 //import { watch } from 'fs';
@@ -53,7 +54,6 @@ export default {
         console.log("file is null; refusing to do anything");
         return;
       }
-      console.log("first trial")
       let that = this;
       Papa.parse(this.fileurl,{
           download : true,
@@ -63,20 +63,32 @@ export default {
                //a = results;
                //this.file = results.data;
                that.file = results.data;
-               //console.log("results", results);
+               that.prehead = Object.keys(results.data[0]);
+
+                that.prehead.forEach(function(element){
+                    that.head.push({text:element, value:element})
+                   // console.log("HEADsER OBJECT", that.head)
+                });
+                
+               //console.log("preHEADsER OBJECT", that.prehead)
+
            },
 
       });
-   
+
+
+
+
     }
   },
   data: function() {
-   //console.log("ajsdf")
    return {
       row:{},
       leftAdded:false,
       itemsToCompare:[{},{}],
-      file: [ ],
+      file: [],
+      head:[],
+      prehead:[],
       fileurl: "./data.csv"
     };
   },
@@ -88,11 +100,6 @@ export default {
       this.loadFile();
     },
   }
-
-
-
-
-
 
 
 };
